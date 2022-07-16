@@ -16,7 +16,7 @@ const ReactionList = ({reaction}) => {
                                 {reaction.username} on {reaction.createdAt}
                             </Link>
                         </p>
-                    ))}
+                ))}
             </div>
         </div>
     )

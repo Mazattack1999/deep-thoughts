@@ -15,24 +15,24 @@ const ReactionForm = ({ thoughtId }) => {
     if (event.target.value.length <= 280) {
         setBody(event.target.value);
         setCharacterCount(event.target.value.length);
-        console.log(reactionBody)
     }
     };
 
     const handleFormSubmit = async event => {
-    event.preventDefault();
-    try {
-        // add thought to database
-        await addReaction({
-          variables: { reactionBody, thoughtId}
-        });
-    
-        // clear form value
-        setBody('');
-        setCharacterCount(0);
-    } catch (e) {
-        console.error(e);
-    }
+        event.preventDefault();
+        try {
+            // add thought to database
+            console.log(reactionBody);
+            await addReaction({
+            variables: { thoughtId, reactionBody}
+            });
+        
+            // clear form value
+            setBody('');
+            setCharacterCount(0);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
   return (
